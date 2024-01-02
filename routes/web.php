@@ -17,6 +17,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StockRequestController;
 use App\Http\Controllers\ClassicReportController;
+use App\Http\Controllers\CustomerOrderController;
 use Illuminate\Support\Facades\Session;
 
 /*
@@ -197,6 +198,10 @@ Route::middleware(['auth'])->group(function () {
 
         Route::post('/customer/cart/checkout/user', [CheckoutController::class, 'updateUserInfo'])
             ->name('customer.cart.checkout.user');
+
+        Route::get('/customer/orders', [CustomerOrderController::class, 'index'])
+            ->name('customer.orders');
+            
     });
 
     // Supplier routes (cancelled)
