@@ -12,14 +12,14 @@
     </ul> --}}
 <x-title>My Orders</x-title>
 @foreach ($orders as $order)
-<div class="p-5 mb-4 border border-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-    <time class="text-lg font-semibold text-gray-900 dark:text-white">{{ $order->created_at }}</time>
-    <div class="category mt-3">
-        <span class="bg-gray-200 text-gray-800 text-base font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-800 ml-3">{{ $order->status}}</span>
-      </div>
-
-      @foreach ($order->orderDetails as $orderDetail)
-<div class="relative border border-green-400 overflow-x-auto shadow-md sm:rounded-lg">
+<div class="p-5 mb-6 border border-gray-10 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center">
+        <time class="text-lg font-semibold text-gray-900 dark:text-white">{{ $order->created_at->format('F d, Y') }}</time>
+        <div class="category mt-3 ml-3">
+          <span class="bg-purple-200 text-gray-800 text-base font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-800">{{ $order->status }}</span>
+        </div>
+      </div>      @foreach ($order->orderDetails as $orderDetail)
+    <div class="m-2 sm:py-0 sm:px-0  relative border border-gray-400 overflow-x-auto shadow-md sm:rounded-lg sm:text-xs ">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -43,16 +43,16 @@
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <img class="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0" src="/docs/images/people/profile-picture-1.jpg" alt="Jese Leos image"/>
+                    <img class="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0" src="/public/images/img4.jpeg" alt="Jese Leos image"/>
                 </th>
                 <td class="px-6 py-4">
-                    {{ $orderDetail->product_name }}
+                    {{ $orderDetail->product->name }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $orderDetail->price }}
+                    {{ $orderDetail->product->category }}
                 </td>
                 <td class="px-6 py-4">
-                    
+                    {{ $orderDetail->product->price }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $orderDetail->quantity }}
