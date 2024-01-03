@@ -67,7 +67,7 @@
                                         <option value="{{ $supplier->id }}">
                                             {{ $supplier->company_name }}
                                         </option>
-                                    @endif
+                                    @endif 
                                 @endforeach
                             @endif
                             {{-- it should works fine check about it later --}}
